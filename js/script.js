@@ -1,23 +1,31 @@
-let mainUrl =
+$("button").click(function(){
+let url =
   "https://api.giphy.com/v1/gifs/search?q=puppy&rating=pg&api_key=tTVMCPwEb1NapUWHla1pBNt4jKlfEqo1";
-
-$(".search-button").click(function () {
-  fetch(mainUrl)
-    .then(function (response) {
-      return response.json();
-    })
-
-     .then(function (mainData) {
-  let urlForJson = mainData.data[0].images.original.url;
-  // console.log(urlForJson);
-        $(".display").append("<img src=" + urlForJson + ">");
-
-
-    return urlForJson;
-    })
-  let userInput= $(".search-term").val();
-});
-
-// [ ] Use string interpolation to update the request URL in your fetch request so a gif from the user's search term displays when the button is clicked
-
+  let response= {
+      data:[ 
+    { id: "id1", url: "www.google.com/" }, 
+      { id: "id2", url: "www.google.com/" } ],
+    meta:{},
+    pagination:{},
+  }
   
+  let input = $("input").val();
+  console.log("input: " + input);
+ let newUrl= "https://api.giphy.com/v1/gifs/search?q="+input+"&rating=pg&api_key=tTVMCPwEb1NapUWHla1pBNt4jKlfEqo1";
+fetch(newUrl)
+  
+  .then(function (response) {
+    return response.json();
+  })
+
+  .then(function (giphy) {
+  console.log(giphy);
+   let num = Math.random()* giphy.data.length;
+  num = Math.floor(num);
+  console.log(num);
+  
+  let urlForGiphy= giphy.data[num].images.original.url;
+  console.log(urlForGiphy);
+   $(".display").append(`<img src=${urlForGiphy}>`);
+  });
+});  

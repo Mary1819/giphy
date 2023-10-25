@@ -49,11 +49,11 @@ In this unit, you will create a Giphy App. The Giphy App will take a search term
 
 - [x] Write a click handler for the "Searc" button and move your fetch request into the body
 - [x] Declare a variable to save the user's input
-- [ ] Use string interpolation to update the request URL in your fetch request so a gif from the user's search term displays when the button is clicked
+- [x] Use string interpolation to update the request URL in your fetch request so a gif from the user's search term displays when the button is clicked
 
 ### Wrap
 
-- [ ] Commit your changes!
+- [x] Commit your changes!
 
 ## Day 3
 
